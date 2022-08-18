@@ -6,17 +6,26 @@ public class StudentOrderValidator {
     static void checkAll() {
         StudentOrder so = readStudentOrder();
 
-        AnswerCityRegister cityAnswer = checkCityRegister(so);
-        AnswerChildren ansChild = checkChildren(so) ;
-        AnswerWedding wedAnswer = checkMarrige(so);
-        AnswerStudent answerStudent = checkStudent(so);
+        while (true) {
+            if (so == null) {
+                break;
+            } else {
+                AnswerCityRegister cityAnswer = checkCityRegister(so);
+                if (!cityAnswer.success) {
+                    continue;
+                }
+                AnswerChildren ansChild = checkChildren(so);
+                AnswerWedding wedAnswer = checkMarrige(so);
+                AnswerStudent answerStudent = checkStudent(so);
 
-        sendMail(so);
+                sendMail(so);
+            }
+        }
     }
 
     static StudentOrder readStudentOrder() {
         StudentOrder so = new StudentOrder();
-        return new StudentOrder();
+        return so;
     }
     static AnswerCityRegister checkCityRegister(StudentOrder so) {
         System.out.println("City Register is running");
@@ -39,6 +48,7 @@ public class StudentOrderValidator {
         return new AnswerStudent();
     }
 
+/*Функция отправки оповещения о завершении проверки документа студенту*/
     static void sendMail(StudentOrder so) {
 
     }
