@@ -1,3 +1,3 @@
 public class AnswerCityRegister {
-    boolean success;
+    boolean success_operation;
 }
