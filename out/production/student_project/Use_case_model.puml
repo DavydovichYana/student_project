@@ -1,0 +1,14 @@
+@startuml
+left to right direction
+actor "Сервис" as sr
+rectangle "Проверка данных студента" {
+  usecase "Статус студента" as UC1
+  usecase "Наличие детей" as UC2
+  usecase "Замужество" as UC3
+  usecase "Регистрация" as UC4
+}
+sr --> UC1
+sr --> UC2
+sr --> UC3
+sr --> UC4
+@enduml
