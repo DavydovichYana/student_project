@@ -5,4 +5,4 @@
 * Регистрация студента.
 
 **Use-Case Model**
-![Use-Case](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://https://raw.githubusercontent.com/DavydovichYana/student_project/master/Use_case_model.puml)
+![Use-Case](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/DavydovichYana/student_project/master/Use_case_model.puml)
