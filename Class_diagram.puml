@@ -1,0 +1,135 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract class Person{
+    String surName
+    String givenName
+    String patronymic
+    LocalDate dateOfBirth
+    Adress adress
+
+ }
+class Adult {
+    String passportSeria
+    long passportNumber
+    LocalDate issueDate
+    String issueDepartment
+    String university
+    String studentId
+    }
+class Child {
+    String certificateNumber
+    LocalDate issueDate
+    String issueDepartment
+}
+class Adress {
+    String postcode
+    String street
+    String building
+    String extension
+    String apartment
+    }
+class StudentOrder {
+    long StudentOrderId
+    Adult husband
+    Adult wife
+    Child child
+    }
+class StudentOrderValidator {
+    CityRegisterValidator cityRegisterVal
+    WeddingValidator weddingVal
+    ChildrenValidator childrenVal
+    StudentValidator studentVal
+    MailSender mailSender
+    --
+    void checkAll()
+    StudentOrder[] readStudentOrders()
+    void checkOneOrder(StudentOrder)
+    ..
+    AnswerCityRegister checkCityRegister(StudentOrder)
+    AnswerWedding checkMarrige(StudentOrder)
+    AnswerChildren checkChildren(StudentOrder)
+    AnswerStudent checkStudent(StudentOrder)
+    ..
+    void sendMail(StudentOrder)
+    }
+class AnswerCityRegister {
+    boolean success
+    }
+class AnswerWedding {
+    boolean success
+    }
+class AnswerChildren {
+    boolean success
+    }
+class AnswerStudent {
+    boolean success
+    }
+class  MailSender {
+    void sendMail(StudentOrder)
+}
+
+class CityRegisterValidator {
+    String hostname
+    String login
+    String password
+    CityRegisterCheсker personCheker
+    AnswerCityRegister checkCityRegister(StudentOrder)
+    }
+class WeddingValidator {
+    AnswerWedding checkMarrige(StudentOrder)
+    }
+class ChildrenValidator {
+    AnswerChildren checkChildren(StudentOrder)
+    }
+class StudentValidator {
+    AnswerStudent checkStudent(StudentOrder)
+    }
+
+
+interface CityRegisterCheсker {
+    CityRegisterChekerResponse checkPerson(Person)
+    }
+class FakeCityRegisterChecker implements CityRegisterCheсker {
+    CityRegisterChekerResponse checkPerson(Person)
+    }
+class RealCityRegisterChecker implements CityRegisterCheсker {
+    CityRegisterChekerResponse checkPerson(Person)
+    }
+class CityRegisterChekerResponse {
+    boolean existing
+    Boolean temporal = null
+    }
+
+Person "1..1" <|-- "0..*" Adult : inherits
+Person "1..1"<|--"0..*" Child : inherits
+Person "1..1" o--"1..1"Adress : belongs to
+StudentOrder "1..1" *-- "2..2" Adult : included in
+StudentOrder "1..1" *-- "1..*" Child : included in
+StudentOrderValidator "1..1" *-- "1..*" StudentOrder
+
+StudentOrderValidator "1..1" *-- "1..1" CityRegisterValidator
+StudentOrderValidator "1..1" *-- "1..1" WeddingValidator
+StudentOrderValidator "1..1" *-- "1..1" ChildrenValidator
+StudentOrderValidator "1..1" *-- "1..1" StudentValidator
+StudentOrderValidator "1..1" *-- "1..1" MailSender
+
+CityRegisterValidator "1..1" *-- "1..1" AnswerCityRegister
+WeddingValidator "1..1" *-- "1..1" AnswerWedding
+ChildrenValidator "1..1" *-- "1..1" AnswerChildren
+StudentValidator "1..1" *-- "1..1" AnswerStudent
+
+CityRegisterValidator "1..1" *-- "1..1" StudentOrder
+WeddingValidator "1..1" *-- "1..1" StudentOrder
+ChildrenValidator "1..1" *-- "1..1" StudentOrder
+StudentValidator "1..1" *-- "1..1" StudentOrder
+MailSender "1..1" *-- "1..1" StudentOrder
+
+CityRegisterCheсker "1..1" <.. "1..1" Person
+FakeCityRegisterChecker "1..1" <.. "1..1" CityRegisterChekerResponse
+RealCityRegisterChecker "1..1" <.. "1..1" CityRegisterChekerResponse
+
+CityRegisterValidator "1..1" <.. "1..1" CityRegisterCheсker
+@enduml
+
+// TODO: Переделать связи
