@@ -4,13 +4,11 @@ import java.time.LocalDate;
 
 public class Adult extends Person{
     private String passportSeria;
-    private long passportNumber;
+    private String passportNumber;
     private LocalDate issueDate;
     private String issueDepartment;
     private String university;
     private String studentId;
-
-    public Adult() {}
 
     public Adult(String surName, String givenName, String patronymic, LocalDate dateOfBirth) {
         super(surName, givenName, patronymic, dateOfBirth);
@@ -24,11 +22,11 @@ public class Adult extends Person{
         this.passportSeria = passportSeria;
     }
 
-    public long getPassportNumber() {
+    public String getPassportNumber() {
         return passportNumber;
     }
 
-    public void setPassportNumber(long passportNumber) {
+    public void setPassportNumber(String passportNumber) {
         this.passportNumber = passportNumber;
     }
 
