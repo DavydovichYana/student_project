@@ -1,8 +1,10 @@
 package edu.javacourse.studentorder.validator;
 
-import edu.javacourse.studentorder.domain.AnswerCityRegister;
 import edu.javacourse.studentorder.domain.StudentOrder;
+import edu.javacourse.studentorder.domain.register.AnswerCityRegister;
 import edu.javacourse.studentorder.exception.CityRegisterException;
+import edu.javacourse.studentorder.validator.register.CityRegisterCheсker;
+import edu.javacourse.studentorder.validator.register.FakeCityRegisterChecker;
 
 public class CityRegisterValidator {
     public String hostname;
