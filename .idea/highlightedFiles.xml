@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectTreeColorHighlighter">
     <files>
-      <node color="12" path="$PROJECT_DIR$/src/edu/javacourse/studentorder/domain" />
       <node color="11" path="$PROJECT_DIR$/src/edu/javacourse/studentorder/exception" />
     </files>
     <colors>

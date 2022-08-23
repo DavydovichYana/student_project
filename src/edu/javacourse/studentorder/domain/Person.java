@@ -54,7 +54,5 @@ public abstract class Person {
         return adress;
     }
 
-    public void setAdress(Adress adress) {
-        this.adress = adress;
-    }
+    public void setAdress(Adress adress) { this.adress = adress; }
 }
