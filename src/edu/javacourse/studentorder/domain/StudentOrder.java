@@ -1,16 +1,17 @@
 package edu.javacourse.studentorder.domain;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
-public class StudentOrder
-{
+public class StudentOrder {
     private long StudentOrderId;
     private long MarrigeCertificateId;
     private LocalDate MarrigeDate;
     private String MarrigeOffice;
     private Adult husband;
     private Adult wife;
-    private Child child;
+    private List<Child> children;
 
     public long getStudentOrderId() {
         return StudentOrderId;
@@ -36,12 +37,15 @@ public class StudentOrder
         this.wife = wife;
     }
 
-    public Child getChild() {
-        return child;
+    public List<Child> getChildren() {
+        return children;
     }
 
-    public void setChild(Child child) {
-        this.child = child;
+    public void addChildren(Child child) {
+        if (children == null) {
+            children = new ArrayList<>();
+        }
+        children.add(child);
     }
 
     public long getMarrigeCertificateId() {
