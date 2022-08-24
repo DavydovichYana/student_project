@@ -20,7 +20,7 @@ public class CityRegisterValidator {
         try {
             personCheker.checkPerson(so.getHusband());
             personCheker.checkPerson(so.getWife());
-            personCheker.checkPerson(so.getChild());
+//todo            personCheker.checkPerson(so.getChildren());
         } catch (CityRegisterException ex) {
             ex.printStackTrace(System.out);
         }

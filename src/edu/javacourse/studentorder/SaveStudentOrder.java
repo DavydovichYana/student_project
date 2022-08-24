@@ -54,7 +54,7 @@ public class SaveStudentOrder {
 
         so.setHusband(husband);
         so.setWife(wife);
-        so.setChild(child);
+        so.addChildren(child);
 
         return so;
     }
