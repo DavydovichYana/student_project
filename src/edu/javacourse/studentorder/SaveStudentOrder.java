@@ -12,6 +12,7 @@ public class SaveStudentOrder {
 //        long id = 0;
 //        buildStudentOrder(id);
     }
+
     static long saveStudentOrder(StudentOrder so) {
         long answer = 99;
         System.out.println("Save StudentOrder");
@@ -22,25 +23,25 @@ public class SaveStudentOrder {
         StudentOrder so = new StudentOrder();
         so.setStudentOrderId(id);
         so.setMarrigeCertificateId(id);
-        so.setMarrigeDate(LocalDate.of(2016,7,24));
+        so.setMarrigeDate(LocalDate.of(2016, 7, 24));
         so.setMarrigeOffice("Отдел ЗАГС Новокашинского района");
 
-        Adress adress = new Adress("1535244", "Заневский пр.", "12", "","142");
+        Adress adress = new Adress("1535244", "Заневский пр.", "12", "", "142");
 
         //Husband
-        Adult husband = new Adult("Petrov", "Afanasii", "Sergeevich", LocalDate.of(1999,5,23));
+        Adult husband = new Adult("Petrov", "Afanasii", "Sergeevich", LocalDate.of(1999, 5, 23));
         husband.setPassportSeria("" + (1000 + id));
         husband.setPassportNumber("" + (10000 + id));
-        husband.setIssueDate(LocalDate.of(2022,1,22));
+        husband.setIssueDate(LocalDate.of(2022, 1, 22));
         husband.setIssueDepartment("Отдел милиции № " + id);
         husband.setStudentId("" + (1000000 + id));
         husband.setAdress(adress);
 
         //Wife
-        Adult wife = new Adult("Petrova", "Olga", "Alekseevna", LocalDate.of(2000,1,7));
+        Adult wife = new Adult("Petrova", "Olga", "Alekseevna", LocalDate.of(2000, 1, 7));
         wife.setPassportSeria("" + (2000 + id));
         wife.setPassportNumber("" + (20000 + id));
-        wife.setIssueDate(LocalDate.of(2020,11,5));
+        wife.setIssueDate(LocalDate.of(2020, 11, 5));
         wife.setIssueDepartment("Отдел милиции № " + id);
         wife.setStudentId("" + (2000000 + id));
         wife.setAdress(adress);
@@ -54,7 +55,7 @@ public class SaveStudentOrder {
 
         so.setHusband(husband);
         so.setWife(wife);
-        so.setChild(child);
+        so.addChildren(child);
 
         return so;
     }
