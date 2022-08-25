@@ -1,6 +1,6 @@
-package edu.javacourse.studentorder.domain;
+package edu.javacourse.studentorder.domain.register;
 
-public class CityRegisterChekerResponse {
+public class CityRegisterResponse {
     private boolean existing;
     private Boolean temporal = null;
 
@@ -22,7 +22,7 @@ public class CityRegisterChekerResponse {
 
     @Override
     public String toString() {
-        return "CityRegisterChekerResponse{" +
+        return "CityRegisterResponse{" +
                 "existing=" + existing +
                 ", temporal=" + temporal +
                 '}';
