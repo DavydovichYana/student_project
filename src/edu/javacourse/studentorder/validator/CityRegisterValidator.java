@@ -45,9 +45,11 @@ public class CityRegisterValidator {
         } catch (TransportException ex) {
             ex.printStackTrace(System.out);
             error = new AnswerCityRegisterItem.CityError(IN_CODE, ex.getMessage());
+        } catch (Exception ex) {
+            ex.printStackTrace(System.out);
+            error = new AnswerCityRegisterItem.CityError(IN_CODE, ex.getMessage());
 
         }
-
         AnswerCityRegisterItem ans = new AnswerCityRegisterItem(status, person, error);
         return ans;
     }
