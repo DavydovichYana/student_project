@@ -2,6 +2,7 @@ package edu.javacourse.studentorder.domain.register;
 
 import edu.javacourse.studentorder.domain.Person;
 
+// ответ для одного человека из ГРН (в том числе учитывается возможность ошибки при работе функции или при соединении с ГРН)
 public class AnswerCityRegisterItem {
 
     public enum CityStatus {
