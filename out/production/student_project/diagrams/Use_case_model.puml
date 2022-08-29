@@ -1,0 +1,28 @@
+@startuml
+left to right direction
+actor "Сервис" as sr
+actor "Семья" as f
+
+rectangle "Обработка заявки от семьи студентов" {
+  usecase "Проверка заявки" as UC0
+  usecase "Проверка статуса студента" as UC1
+  usecase "Проверка наличия детей" as UC2
+  usecase "Проверка замужества" as UC3
+  usecase "Проверка регистрации" as UC4
+  usecase "Подача заявки" as UC5
+}
+
+f -- UC5
+
+UC1 -- sr
+UC2 -- sr
+UC3 -- sr
+UC4 -- sr
+
+UC5 <-- UC0 : <<include>>
+
+UC0 <-- UC1 : <<extend>>
+UC0 <-- UC2 : <<extend>>
+UC0 <-- UC3 : <<extend>>
+UC0 <-- UC4 : <<extend>>
+@enduml

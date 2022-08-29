@@ -1,28 +1,15 @@
 package edu.javacourse.studentorder;
 
-import edu.javacourse.studentorder.domain.Adress;
-import edu.javacourse.studentorder.domain.Adult;
-import edu.javacourse.studentorder.domain.Child;
-import edu.javacourse.studentorder.domain.StudentOrder;
+import edu.javacourse.studentorder.domain.*;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
 import java.time.LocalDate;
 
 public class SaveStudentOrder {
     public static void main(String[] args) throws Exception{
-        Class.forName("org.postgresql.Driver");
-        Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/jc_student", "postgres", "postgres");
-        Statement stmt = con.createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT * FROM jc_street");
-        while (rs.next()) {
-            System.out.println(rs.getLong(1)+ " : " + rs.getString(2));
+
         }
         //        long id = 0;
 //        buildStudentOrder(id);
-    }
 
     static long saveStudentOrder(StudentOrder so) {
         long answer = 99;
@@ -37,7 +24,9 @@ public class SaveStudentOrder {
         so.setMarrigeDate(LocalDate.of(2016, 7, 24));
         so.setMarrigeOffice("Отдел ЗАГС Новокашинского района");
 
-        Adress adress = new Adress("1535244", "Заневский пр.", "12", "", "142");
+        Street street = new Street(1L, "Aviatsionnaya street");
+
+        Adress adress = new Adress("1535244", street, "12", "", "142");
 
         //Husband
         Adult husband = new Adult("Petrov", "Afanasii", "Sergeevich", LocalDate.of(1999, 5, 23));
