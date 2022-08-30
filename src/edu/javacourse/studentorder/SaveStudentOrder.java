@@ -1,13 +1,18 @@
 package edu.javacourse.studentorder;
 
+import edu.javacourse.studentorder.dao.DictionaryDaoImpl;
 import edu.javacourse.studentorder.domain.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class SaveStudentOrder {
     public static void main(String[] args) throws Exception{
-
+        List<Street> d = new DictionaryDaoImpl().findStreets("su");
+        for(Street s : d) {
+            System.out.println(s.getStreetName() + s.getStreetCode());
         }
+    }
         //        long id = 0;
 //        buildStudentOrder(id);
 
