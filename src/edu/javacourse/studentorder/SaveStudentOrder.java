@@ -8,9 +8,9 @@ import java.util.List;
 
 public class SaveStudentOrder {
     public static void main(String[] args) throws Exception{
-        List<Street> d = new DictionaryDaoImpl().findStreets("su");
+        List<Street> d = new DictionaryDaoImpl().findStreets("a");
         for(Street s : d) {
-            System.out.println(s.getStreetName() + s.getStreetCode());
+            System.out.println(s.getStreetName() +", "+ s.getStreetCode());
         }
     }
         //        long id = 0;
