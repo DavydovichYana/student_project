@@ -8,7 +8,7 @@ public class StudentOrder {
     private long StudentOrderId;
     private long MarrigeCertificateId;
     private LocalDate MarrigeDate;
-    private String MarrigeOffice;
+    private RegisterOffice MarrigeOffice;
     private Adult husband;
     private Adult wife;
     private List<Child> children;
@@ -64,11 +64,11 @@ public class StudentOrder {
         MarrigeDate = marrigeDate;
     }
 
-    public String getMarrigeOffice() {
+    public RegisterOffice getMarrigeOffice() {
         return MarrigeOffice;
     }
 
-    public void setMarrigeOffice(String marrigeOffice) {
+    public void setMarrigeOffice(RegisterOffice marrigeOffice) {
         MarrigeOffice = marrigeOffice;
     }
 }
