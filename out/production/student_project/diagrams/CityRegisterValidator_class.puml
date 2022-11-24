@@ -1,0 +1,58 @@
+@startuml
+class CityRegisterValidator {
+- CityRegisterCheсker personCheker
+CityRegisterValidator()
+AnswerCityRegister checkCityRegister(StudentOrder)
+AnswerCityRegisterItem checkPerson(Person)
+}
++interface CityRegisterCheсker {
+    CityRegisterResponse checkPerson(Person)
+    }
+class FakeCityRegisterChecker implements CityRegisterCheсker {
+    +CityRegisterResponse checkPerson(Person)
+    }
+class RealCityRegisterChecker implements CityRegisterCheсker {
+    +CityRegisterResponse checkPerson(Person)
+    }
+class CityRegisterResponse {
+    -boolean existing
+    -Boolean temporal = null
+    }
+class AnswerCityRegister {
+    - List<AnswerCityRegisterItem>
+    + void addItem(AnswerCityRegisterItem)
+}
+class AnswerCityRegisterItem {
++ class CityError(String code, String text)
+-CityStatus status
+-Person person
+-CityError error
+}
+enum CityStatus {
+    YES
+    NO
+    ERROR
+}
+
+FakeCityRegisterChecker"1..1"<--"3...*"CityRegisterResponse
+RealCityRegisterChecker"1..1"<--"3...*"CityRegisterResponse
+CityRegisterCheсker"1..1"<--"3...*"CityRegisterResponse
+note on link #blue: инф-я о (1)существовании\nпрописки, (2)временная\nили постоянная прописка
+
+CityRegisterValidator"1..1"<--"1..1"CityRegisterCheсker
+note on link #red: метод checkPerson вызывается для\nкаждого человека в заявке
+
+CityRegisterValidator"1..1"<--"1..1"FakeCityRegisterChecker
+note "На выходе CityRegisterValidator\nполучает список результатов проверок\nдля каждого члена семьи\n(объекты типа AnswerCityRegisterItem) " as N1
+
+CityRegisterValidator"1..1"<-r-"1..1"RealCityRegisterChecker
+CityRegisterValidator"1..1"<--"3..*"AnswerCityRegister
+AnswerCityRegisterItem*--CityStatus
+note on link #black: AnswerCityRegisterItem\nсодержит ответ из ГРН\nдля 1-го человека\nс учетом возможной ошибки
+
+AnswerCityRegister"1..1"<--"3..*"AnswerCityRegisterItem
+note on link #white: AnswerCityRegister\nсодержит список ответов из ГРН\nдля всей семьи
+
+AnswerCityRegisterItem"1..1"<--"1..1"CityRegisterResponse
+note on link: AnswerCityRegisterItem.CityStatus\nзависит от переменной\nCityRegisterResponse.existing
+@enduml
