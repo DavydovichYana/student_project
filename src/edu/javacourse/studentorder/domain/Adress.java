@@ -7,19 +7,19 @@ public class Adress {
     private String extension;
     private String apartment;
 
-    public Adress(String postcode, Street street, String building, String extension, String apartment) {
-        this.postcode = postcode;
+    public Adress(String postCode, Street street, String building, String extension, String apartment) {
+        this.postcode = postCode;
         this.street = street;
         this.building = building;
         this.extension = extension;
         this.apartment = apartment;
     }
 
-    public String getPostcode() {
+    public String getPostCode() {
         return postcode;
     }
 
-    public void setPostcode(String postcode) {
+    public void setPostСode(String postСode) {
         this.postcode = postcode;
     }
 

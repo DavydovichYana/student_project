@@ -1,17 +1,36 @@
 package edu.javacourse.studentorder.domain;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 public class StudentOrder {
     private long StudentOrderId;
-    private long MarrigeCertificateId;
+    private StudentOrderStatus studentOrderStatus;
+    private LocalDateTime studentOrderDate;
+    private String MarrigeCertificateId;
     private LocalDate MarrigeDate;
     private RegisterOffice MarrigeOffice;
     private Adult husband;
     private Adult wife;
     private List<Child> children;
+
+    public StudentOrderStatus getStudentOrderStatus() {
+        return studentOrderStatus;
+    }
+
+    public void setStudentOrderStatus(StudentOrderStatus studentOrderStatus) {
+        this.studentOrderStatus = studentOrderStatus;
+    }
+
+    public LocalDateTime getStudentOrderDate() {
+        return studentOrderDate;
+    }
+
+    public void setStudentOrderDate(LocalDateTime studentOrderDate) {
+        this.studentOrderDate = studentOrderDate;
+    }
 
     public long getStudentOrderId() {
         return StudentOrderId;
@@ -41,18 +60,18 @@ public class StudentOrder {
         return children;
     }
 
-    public void addChildren(Child child) {
+    public void addChild(Child child) {
         if (children == null) {
             children = new ArrayList<>();
         }
         children.add(child);
     }
 
-    public long getMarrigeCertificateId() {
+    public String getMarrigeCertificateId() {
         return MarrigeCertificateId;
     }
 
-    public void setMarrigeCertificateId(long marrigeCertificateId) {
+    public void setMarrigeCertificateId(String marrigeCertificateId) {
         MarrigeCertificateId = marrigeCertificateId;
     }
 
